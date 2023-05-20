@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <script src="https://kit.fontawesome.com/353aa40d30.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: aliceblue;
+        }
+
+        .container {
+            max-width: 450px;
+            margin: 40px auto 0 auto;
+            box-shadow: 0 0 50px 15px rgb(127, 95, 157);
+        }
+
+        #display {
+            text-align: end;
+            height: 100px;
+            line-height: 80px;
+            padding: 40px 20px;
+            font-size: 30px;
+
+        }
+
+        .buttons {
+            background-color: hsl(0, 9%, 91%);
+            display: grid;
+            border-bottom: 1px solid #999;
+            border-left: 1px solid #999;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+
+        .buttons>div {
+            border-right: 1px solid #999;
+            border-top: 1px solid #999;
+        }
+
+        .button {
+            border: 0.5px solid #454040;
+            line-height: 100px;
+            text-align: center;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+        #clear {
+            background-color: red;
+            color: white;
+        }
+
+        #delete {
+            background-color: yellow;
+        }
+
+        #clear:hover {
+            background-color: rgb(239, 36, 14);
+            color: white;
+        }
+
+        #equal {
+            background-color: rgb(34, 34, 221);
+            color: white;
+        }
+
+        #equal:hover {
+            background-color: rgb(32, 32, 205);
+            color: white;
+        }
+
+        .button:hover {
+            background-color: darkgrey;
+            transition: 0.5s ease-in-out;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="" id="display">
+
+        </div>
+
+        <div class="buttons">
+            <div class="button" id="clear">C</div>
+            <div class="button">*</div>
+            <div class="button">/</div>
+            <div class="button" id="delete"><i class="fa-solid fa-delete-left"></i></div>
+            <div class="button">9</div>
+            <div class="button">8</div>
+            <div class="button">7</div>
+            <div class="button">+</div>
+            <div class="button">6</div>
+            <div class="button">5</div>
+            <div class="button">4</div>
+            <div class="button">-</div>
+            <div class="button">3</div>
+            <div class="button">2</div>
+            <div class="button">1</div>
+            <div class="button">.</div>
+            <div class="button">(</div>
+            <div class="button">0</div>
+            <div class="button">)</div>
+            <div id="equal" class="button">=</div>
+
+        </div>
+    </div>
+
+
+    <script>
+        let display = document.getElementById("display")
+        // console.log(display)
+        let a = Array.from(document.getElementsByClassName("buttons"))
+        console.log(a)
+
+        a.map((e) => {
+            e.addEventListener("click", (h) => {
+                console.log(h.target.innerText)
+                switch (h.target.innerText) {
+                    case "C":
+                        display.innerText = " "
+                        break
+                    case "delete":
+                        display.innerText = display.innerText.slice(0, -1)
+                        break
+                    case "=":
+                        display.innerText = eval(display.innerText)
+                        break
+                    default:
+                        display.innerText += h.target.innerText
+
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>
