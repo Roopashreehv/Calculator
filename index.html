@@ -96,7 +96,7 @@
             <div class="button" id="clear">C</div>
             <div class="button">*</div>
             <div class="button">/</div>
-            <div class="button" id="delete"><i class="fa-solid fa-delete-left"></i></div>
+            <div class="button" id="delete"><i class="fa-solid fa-delete-left">.</i></div>
             <div class="button">9</div>
             <div class="button">8</div>
             <div class="button">7</div>
@@ -131,7 +131,7 @@
                     case "C":
                         display.innerText = " "
                         break
-                    case "delete":
+                    case ".":
                         display.innerText = display.innerText.slice(0, -1)
                         break
                     case "=":
